@@ -15,6 +15,8 @@ those to a repo** unless it truly needs something different. Issues and code nev
 - An **Epic** groups Stories and Tasks as sub-issues.
 - A **Story** says what a user needs and how we'll know it works (acceptance criteria as checkboxes). Testers tick them.
 - A PR says `Closes #n`, so every change traces back to the issue that asked for it.
+- A **Release test** issue holds each release's test script: the tester ticks every check, and the
+  closed issue is the record that the release was tested.
 
 ## New repo checklist
 

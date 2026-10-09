@@ -1,0 +1,70 @@
+name: Release test
+description: The test script for one release. The developer fills it in at the cut-off; the tester ticks each check and comments on failures.
+title: "Release test: "
+type: Task
+labels: [compliance]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue per release. **Developer:** fill in everything below at the cut-off, then assign the tester.
+        **Tester:** work top to bottom on the test site, tick each check that passes, and comment on any that fail (steps, what happened, a screenshot). Don't tick a failed check.
+        When every check is ticked and the release is approved, close this issue. The closed issue is the record that the release was tested.
+  - type: input
+    id: date
+    attributes:
+      label: Planned release date
+      placeholder: 2026-10-23
+    validations:
+      required: true
+  - type: input
+    id: pr
+    attributes:
+      label: Release pull request
+      placeholder: "#123 (testing → main)"
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where to test, and which logins
+      placeholder: test.meterworx.app, demo accounts (see docs/testing in the repo)
+    validations:
+      required: true
+  - type: textarea
+    id: contents
+    attributes:
+      label: What is in this release
+      description: One line per story or fix, with its issue number.
+      value: |
+        - #___
+    validations:
+      required: true
+  - type: textarea
+    id: story-checks
+    attributes:
+      label: Story checks
+      description: From each story's acceptance criteria. One checkbox per step, with the login, what to do, and what should happen.
+      value: |
+        **#___ Story title** (login: ___)
+        - [ ] Do ___ → expect ___
+        - [ ] Do ___ → expect ___
+    validations:
+      required: true
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression checks
+      description: Paste the project's every-release list (MeterWorx docs/testing/regression.md), as checkboxes.
+      value: |
+        - [ ] R1 ___
+    validations:
+      required: true
+  - type: textarea
+    id: signoff
+    attributes:
+      label: Sign-off
+      value: |
+        - [ ] Every check ticked, or each failure has a Bug and a decision
+        - [ ] Money checks compared against recorded figures (if any)
+        - [ ] Approved for release by: ___

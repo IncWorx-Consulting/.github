@@ -9,7 +9,7 @@ those to a repo** unless it truly needs something different. Issues and code nev
 | What | Where | Values |
 |---|---|---|
 | Kind of work | Issue **type** (org setting) | Epic, Story, Task, Bug (Feature is legacy) |
-| Status, release, priority, size | Fields on the org **Project** (private) | Status: Backlog, Ready, In progress, In review, Testing, Done |
+| Status, release, priority, size | Fields on the product's **Project** (private, one per product) | Status: Backlog, Ready, In progress, In review, Testing, Done |
 | Area and flags | **Labels** (`labels.yml` here + the repo's own `.github/labels.yml` for `area:*`) | `compliance`, `financial`, `security`, `blocked`, `needs-decision` |
 
 - An **Epic** groups Stories and Tasks as sub-issues.
@@ -18,7 +18,8 @@ those to a repo** unless it truly needs something different. Issues and code nev
 
 ## New repo checklist
 
-1. Link the repo to the org Project and add its open issues.
+1. Make the product's Project from the org template **"Template: IncWorx project"** (New project → Templates), rename its
+   Release options to the product's releases, link the repo, and turn on Workflows → Auto-add and Item closed → Done.
 2. Optionally add `.github/labels.yml` with the repo's `area:*` labels, add the workflow below, and run it once.
 
 ```yaml

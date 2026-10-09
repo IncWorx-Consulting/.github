@@ -1,0 +1,41 @@
+name: Bug
+description: Something that worked, or should work, and doesn't.
+type: Bug
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      placeholder: e.g. production portal, test app 2.0.0 (104) on iPhone, Android 1.6.5
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Blocks work in the field or office
+        - Wrong data or wrong money
+        - Annoying, has a workaround
+        - Cosmetic
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, logs, Sentry link

@@ -1,0 +1,35 @@
+# Reusable: creates/updates the org labels (labels.yml in this repo) plus the calling repo's own
+# .github/labels.yml, if it has one. Never deletes a label.
+name: Sync labels
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: IncWorx-Consulting/.github
+          path: org
+      - uses: actions/checkout@v4
+        with:
+          path: repo
+      - name: Create or update labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          for f in org/labels.yml repo/.github/labels.yml; do
+            [ -f "$f" ] || continue
+            yq -o=tsv '.[] | [.name, .color, .description // ""]' "$f" |
+            while IFS=$'\t' read -r name color desc; do
+              gh label create "$name" -R "$REPO" --color "$color" --description "$desc" --force
+            done
+          done

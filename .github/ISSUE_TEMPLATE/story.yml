@@ -1,0 +1,46 @@
+name: Story
+description: Something a user needs, with acceptance criteria testers can check.
+type: Story
+body:
+  - type: markdown
+    attributes:
+      value: One story per issue. Say what the user needs and how we'll know it works; the developer decides how. Release and priority are set on the Project board.
+  - type: input
+    id: who
+    attributes:
+      label: Who is it for
+      placeholder: e.g. field tech, office / dispatch, manager, client admin
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: Story
+      value: |
+        As a ...
+        I want ...
+        So that ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: One checkbox per criterion. Testers tick them when verified. Given / When / Then works well.
+      value: |
+        - [ ] Given ..., when ..., then ...
+        - [ ] Given ..., when ..., then ...
+    validations:
+      required: true
+  - type: dropdown
+    id: money
+    attributes:
+      label: Does it change billing, pay, pricing or financial reports?
+      description: If yes, add the `financial` label. It needs a second reviewer and a test against known figures.
+      options: ["No", "Yes", "Not sure"]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, screenshots, examples

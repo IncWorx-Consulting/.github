@@ -1,0 +1,16 @@
+name: Task
+description: Technical or operational work that isn't a user story (setup, upgrade, cleanup, research).
+type: Task
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What and why
+    validations:
+      required: true
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist
+      value: |
+        - [ ]

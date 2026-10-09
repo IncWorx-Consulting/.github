@@ -1,0 +1,23 @@
+# Org-wide labels. Types (Epic/Story/Task/Bug) and Project fields (status, release, priority)
+# are NOT labels. Synced by .github/workflows/sync-labels.yml; it creates and updates, never deletes.
+- name: compliance
+  color: b60205
+  description: SOC / audit evidence, policies and controls
+- name: financial
+  color: d93f0b
+  description: Changes billing, pay, pricing or financial reports; needs a second reviewer
+- name: security
+  color: 5319e7
+  description: Access, secrets, data protection
+- name: blocked
+  color: "000000"
+  description: Waiting on someone or something outside the team
+- name: needs-decision
+  color: fbca04
+  description: Needs a product or client decision before work starts
+- name: documentation
+  color: 0075ca
+  description: Docs only
+- name: dependencies
+  color: 0366d6
+  description: Dependency updates
